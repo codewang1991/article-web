@@ -18,7 +18,7 @@ http.interceptors.request.use(config => {
       Promise.reject(error)
     })
      
-    // 设置拦截 出现错误时提示 错误信息
+// 设置拦截 出现错误时提示 错误信息
 http.interceptors.response.use(response => response, error => {
       return Promise.reject(error)
     })
