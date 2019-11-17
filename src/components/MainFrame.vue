@@ -6,18 +6,27 @@
           <template slot="title"><i class="el-icon-message"></i>导航一</template>
           <el-menu-item-group>
             <el-menu-item index="/list" >文章列表</el-menu-item>
-            <el-menu-item index="/add">新建文章</el-menu-item>
+            <el-menu-item index="/add">新建文章{{message}}</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
       </el-menu>
     </el-aside>
     <router-view></router-view>
+    
   </el-container>
 </template>
 
 <script>
     export default {
-        name: "MainFrame"
+        name: "MainFrame",
+        data(){
+          return{
+            message: this.$store.state.message
+          }
+        },
+        created(){
+            this.$store.dispatch('test')
+        }
     }
 </script>
 
